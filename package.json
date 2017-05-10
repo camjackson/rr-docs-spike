@@ -4,8 +4,10 @@
   "license": "AGPL-3.0",
   "version": "0.1.0",
   "dependencies": {
+    "layabout": "^0.7.1",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "styled-components": "^1.4.6"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
