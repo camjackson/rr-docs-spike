@@ -1,31 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import styled from 'styled-components';
 import { FlexRow } from 'layabout';
 import EventList from './EventList';
-import Diagram from './Diagram';
+import Home from './Home';
+import PickAnEvent from './PickAnEvent';
+import EventDiagram from './EventDiagram';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedEvent: null,
-    };
-  }
+const Div = styled.div`
+  height: 100%;
+`;
 
-  selectEvent = (event) => {
-    this.setState({ selectedEvent: event });
-  }
+const Main = styled.main`
+  text-align: center;
+`;
 
-  render() {
-    return (
-      <div>
-        <h2>Rabble Rouser Event Docs</h2>
-        <FlexRow>
-          <EventList selectEvent={this.selectEvent} />
-          <Diagram selectedEvent={this.state.selectedEvent} />
-        </FlexRow>
-      </div>
-    );
-  }
-}
+//TODO: Wtf is going on with the flex basis?
+
+const App = () => (
+  <Router>
+    <FlexRow container={Div} sizes={[1, 4, 0.2]}>
+      <EventList />
+      <Main>
+        <Route path="/" exact component={Home} />
+        <Route path="/events" exact component={PickAnEvent}/>
+        <Route path="/events/:eventType" component={EventDiagram} />
+      </Main>
+    </FlexRow>
+  </Router>
+);
 
 export default App;
