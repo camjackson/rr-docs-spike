@@ -5,7 +5,7 @@ import { FlexRow } from 'layabout';
 import EventList from './EventList';
 import Home from './Home';
 import PickAnEvent from './PickAnEvent';
-import EventDiagram from './EventDiagram';
+import EventDiagram from './eventDiagram/EventDiagram';
 
 const Div = styled.div`
   height: 100%;

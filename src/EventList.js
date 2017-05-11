@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { eventTypes } from './services';
+import { eventTypes } from './data';
 
 const Nav = styled.nav`
   height: 100%;
