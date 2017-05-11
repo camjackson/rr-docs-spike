@@ -3,7 +3,7 @@ export const services = {
     consumes: ['branch-created', 'branch-removed', 'branch-edited'],
     publishes: ['member-registered', 'send-email'],
   },
-  admin: {
+  core: {
     consumes: [
       'member-registered', 'member-removed', 'member-edited',
       'branch-created', 'branch-removed', 'branch-edited',
