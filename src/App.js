@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import { eventTypes } from './services';
+import { FlexRow } from 'layabout';
+import EventList from './EventList';
+import Diagram from './Diagram';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedEvent: null,
+    };
+  }
+
+  selectEvent = (event) => {
+    this.setState({ selectedEvent: event });
+  }
+
   render() {
     return (
       <div>
         <h2>Rabble Rouser Event Docs</h2>
-        <p>To get started, edit <code>src/App.js</code> and save to reload.</p>
-        <ol>
-          {eventTypes.map(eventType => (
-            <li key={eventType}>{eventType}</li>
-          ))}
-        </ol>
+        <FlexRow>
+          <EventList selectEvent={this.selectEvent} />
+          <Diagram selectedEvent={this.state.selectedEvent} />
+        </FlexRow>
       </div>
     );
   }
